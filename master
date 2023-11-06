@@ -1,0 +1,35 @@
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'your_database_uri'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    # User model with fields like username, email, password, etc.
+
+class Property(db.Model):
+    # Property model with fields like title, description, price, owner, location, etc.
+
+class Booking(db.Model):
+    # Booking model with fields like property_id, user_id, check-in date, check-out date, etc.
+
+@app.route('/')
+def home():
+    # Render the home page with property listings.
+
+@app.route('/property/<int:property_id>')
+def view_property(property_id):
+    # Show details of a specific property.
+
+@app.route('/book/<int:property_id>', methods=['POST'])
+def book_property(property_id):
+    # Handle property booking, payment processing, and reservations.
+
+@app.route('/profile')
+def user_profile():
+    # User profile page with user's properties, bookings, and reviews.
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
